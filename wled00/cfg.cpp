@@ -138,8 +138,8 @@ bool deserializeConfig(JsonObject doc, bool fromFS) {
     bool busesChanged = false;
     for (JsonObject elm : ins) {
       if (s >= WLED_MAX_BUSSES+WLED_MIN_VIRTUAL_BUSSES) break;
-      uint8_t pins[5] = {255, 255, 255, 255, 255};
-      JsonArray pinArr = elm["pin"];
+      uint8_t pins[5] = {19, 18, 17, 255, 255};
+      /*JsonArray pinArr = elm["pin"];
       if (pinArr.size() == 0) continue;
       pins[0] = pinArr[0];
       uint8_t i = 0;
@@ -147,6 +147,7 @@ bool deserializeConfig(JsonObject doc, bool fromFS) {
         pins[i++] = p;
         if (i>4) break;
       }
+      */
 
       uint16_t length = elm["len"] | 1;
       uint8_t colorOrder = (int)elm[F("order")]; // contains white channel swap option in upper nibble
